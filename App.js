@@ -1,12 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- * @lint-ignore-every XPLATJSCOPYRIGHT1
- */
-
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
@@ -27,7 +18,6 @@ export default class App extends Component {
     return fetch("https://api.airvisual.com/v2/city?city=Denver&state=Colorado&country=USA&key=8RFFvdj63HWR7Bk4x")
       .then((response) => response.json())
       .then((response) => {
-        console.log("working?: " + response.data.current.weather.tp);
         this.setState({
           temp: response.data.current.weather.tp,
           airPressure: response.data.current.weather.pr,
@@ -44,11 +34,19 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#F5FCFF"}}>
-        <Text>Welcome to React Native!</Text>
+      <View style={styles.container}>
+        <Text>Denver Weather Update</Text>
         <Text>{this.state.temp}</Text>
       </View>
     );
   }
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF",
+  }
+})
