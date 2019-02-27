@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import React, {Component} from "react";
+import {Platform, StyleSheet, Text, View} from "react-native";
+import Farenheit from "./components/Farenheit";
 
 
 export default class App extends Component {
@@ -33,10 +34,14 @@ export default class App extends Component {
 
 
   render() {
+
+    const farenheit = 
+
     return (
       <View style={styles.container}>
-        <Text>Denver Weather Update</Text>
-        <Text>{this.state.temp}</Text>
+        <Text>Denver Weather</Text>
+        <Farenheit celsius = {this.state.temp}/>
+        <Text>{this.state.temp} &deg; C</Text>
       </View>
     );
   }
